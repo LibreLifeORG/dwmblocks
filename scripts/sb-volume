@@ -5,7 +5,7 @@ _bsd() {
 }
 
 _linux() {
-	printf "$(pamixer --get-volume)%%\n"
+	pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'
 }
 
 case $(uname) in
